@@ -478,7 +478,7 @@ const AREAS_DATA = [
         name:"Álgebra e Geometria",
         topics:[
           {txt:"Funções (1º, 2º grau e Exponencial)", serie:"2º-3º", guide:"Análise de gráficos. A função exponencial é muito cobrada para representar crescimento de bactérias ou vírus."},
-          {txt:"Geometria Plana e Espacial", serie:"2º-3º", guide:"Cálculo de áreas (triângulos, círculos) e volumes (cilindro, cone, prisma). Frequentemente associado a capacidade de reservatórios ou embalagens."}
+          {txt:"Geometria Plana e Espacial", serie:"2º-3º", guide:"Cálculo de áreas (triangles, círculos) e volumes (cilindro, cone, prisma). Frequentemente associado a capacidade de reservatórios ou embalagens."}
         ]
       },
       {
@@ -520,30 +520,40 @@ const FASES = [
   {num:"4", name:"Revisão final", date:"19/out – 07/nov", desc:"Revisão leve com resumos e fórmulas. Redações cronometradas. Durma bem na semana prova."}
 ];
 
-let state = { checks:{}, redacoes:0 };
+let state = { checks:{} };
 
-// Simulador de LocalStorage para o navegador do usuário
-const storageMock = {
-  get: (key) => Promise.resolve({ value: localStorage.getItem(key) }),
-  set: (key, val) => { localStorage.setItem(key, val); return Promise.resolve(); }
-};
-const storage = window.storage || storageMock;
+// ========= FUNÇÕES NATIVAS DO NAVEGADOR (CORRIGIDAS) =========
 
-async function loadState(){
-  try{
-    const r = await storage.get("enem2026-progress");
-    if(r && r.value) state = JSON.parse(r.value);
-  }catch(e){}
-  if(!state.checks) state.checks = {};
+function loadState(){
+  try {
+    const saved = localStorage.getItem("enem2026-progress");
+    if (saved) {
+      state = JSON.parse(saved);
+    }
+  } catch(e) {
+    console.error("Erro ao carregar o progresso:", e);
+  }
+  
+  // Se for a primeira vez acessando, cria o objeto vazio
+  if(!state.checks) {
+    state.checks = {};
+  }
 }
 
 function saveState(){
-  try{ storage.set("enem2026-progress", JSON.stringify(state)); }catch(e){}
+  try {
+    localStorage.setItem("enem2026-progress", JSON.stringify(state));
+  } catch(e) {
+    console.error("Erro ao salvar o progresso:", e);
+    alert("Seu navegador está bloqueando o salvamento. Verifique se você não está em Guia Anônima.");
+  }
 }
 
+// =============================================================
+
 function renderCountdown(){
-  const exam = new Date("2026-11-08");
-  const now = new Date(); now.setHours(0,0,0,0);
+  const exam = new Date("2026-11-08T00:00:00");
+  const now = new Date();
   const diff = Math.max(0, Math.round((exam - now)/86400000));
   document.getElementById("daysNum").textContent = diff;
 }
@@ -552,11 +562,11 @@ function updateProgress(){
   let total = 0;
   let done = 0;
 
-  AREAS_DATA.forEach((a, ai) => {
-    a.subjects.forEach((s, si) => {
+  AREAS_DATA.forEach((a) => {
+    a.subjects.forEach((s) => {
       s.topics.forEach((t, ti) => {
         total++;
-        const id = `${a.key}-${si}-${ti}`;
+        const id = `${a.key}-${a.subjects.indexOf(s)}-${ti}`;
         if(state.checks[id]) done++;
       });
     });
@@ -654,7 +664,7 @@ function renderAreas(){
         }
         
         saveState();
-        updateProgress(); // Chama a atualização da barra de progresso
+        updateProgress(); // Atualiza a barrinha lá em cima
         return;
       }
 
@@ -671,7 +681,7 @@ function renderAreas(){
 
   document.getElementById("resetBtn").addEventListener("click", ()=>{
     if(confirm("Zerar tudo? Você perderá seu progresso.")){
-      state = { checks:{}, redacoes:0 };
+      state = { checks:{} };
       saveState();
       location.reload();
     }
@@ -700,14 +710,14 @@ document.addEventListener("keydown", (e)=>{
   }
 });
 
-(async function(){
-  await loadState();
-  renderCountdown();
-  renderMethod();
-  renderFases();
-  renderAreas();
-  updateProgress(); // Inicializa a barra com os dados salvos
-})();
+// Inicialização agora puramente nativa
+loadState();
+renderCountdown();
+renderMethod();
+renderFases();
+renderAreas();
+updateProgress();
+
 </script>
 
 </body>
