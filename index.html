@@ -530,15 +530,15 @@ let state = { checks:{}, redacoes:0 };
 
 async function loadState(){
   try{
-    const raw = localStorage.getItem("enem2026-progress");
-    if(raw) state = JSON.parse(raw);
+    const r = await window.storage.get("enem2026-progress");
+    if(r && r.value) state = JSON.parse(r.value);
   }catch(e){}
   if(!state.checks) state.checks = {};
   if(typeof state.redacoes !== "number") state.redacoes = 0;
 }
 
 function saveState(){
-  try{ localStorage.setItem("enem2026-progress", JSON.stringify(state)); }catch(e){}
+  try{ window.storage.set("enem2026-progress", JSON.stringify(state)); }catch(e){}
 }
 
 function renderCountdown(){
