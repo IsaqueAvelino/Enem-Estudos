@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ENEM 2026 — Plano de Estudos</title>
+<title>ENEM 2026 — Plano de Estudos (Matriz 100%)</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -34,7 +34,7 @@
 
   .wrap{max-width:700px;margin:0 auto;padding:12px;padding-bottom:40px}
 
-  /* ===== HERO ===== */
+  /* ===== HERO E PROGRESSO ===== */
   .hero{
     background:linear-gradient(135deg, rgba(62,99,221,.08) 0%, rgba(232,103,76,.08) 100%);
     border:1px solid var(--line);
@@ -46,7 +46,6 @@
   .days-label{font-size:13px;color:var(--muted);margin-top:6px}
   .exam-info{font-size:12px;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
 
-  /* ===== PROGRESSO ===== */
   .progress-section {
     margin-top: 20px;
     background: var(--surface);
@@ -64,9 +63,7 @@
     margin-bottom: 8px;
     color: var(--ink);
   }
-  .progress-pct {
-    color: var(--mt);
-  }
+  .progress-pct { color: var(--mt); }
   .progress-wrap {
     background: var(--line);
     border-radius: 8px;
@@ -82,42 +79,31 @@
     border-radius: 8px;
   }
 
-  /* ===== SEÇÕES ===== */
+  /* ===== FEEDBACK DE SALVAMENTO ===== */
+  #toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2FA98C;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  #toast.show { opacity: 1; }
+
+  /* ===== SEÇÕES, ÁREAS E TÓPICOS ===== */
   .section{margin-bottom:24px}
   .sec-title{font-size:18px;font-weight:700;margin-bottom:10px}
   .sec-intro{font-size:13px;color:var(--muted);margin-bottom:14px}
 
-  /* ===== MÉTODO ===== */
-  .method-card{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:14px;
-    margin-bottom:12px;
-    display:flex;gap:12px;
-  }
-  .method-ico{font-size:24px}
-  .method-card b{display:block;font-size:13px;margin-bottom:4px}
-  .method-card span{font-size:12px;color:var(--muted);line-height:1.5}
-
-  /* ===== CRONOGRAMA ===== */
-  .fase{
-    background:var(--surface);
-    border-left:4px solid var(--line);
-    border-radius:8px;
-    padding:14px;
-    margin-bottom:10px;
-    box-shadow:var(--shadow);
-  }
-  .fase.f1{border-left-color:var(--lc)}
-  .fase.f2{border-left-color:var(--cn)}
-  .fase.f3{border-left-color:var(--mt)}
-  .fase.f4{border-left-color:var(--rd)}
-  .fase-name{font-weight:700;font-size:14px;margin-bottom:4px}
-  .fase-date{font-size:11px;color:var(--muted)}
-  .fase-desc{font-size:12px;color:var(--muted);margin-top:6px}
-
-  /* ===== ÁREA ===== */
   .area{
     background:var(--surface);
     border:1px solid var(--line);
@@ -134,16 +120,9 @@
     user-select:none;
   }
   .area-badge{
-    width:40px;
-    height:40px;
-    border-radius:10px;
-    color:#fff;
-    font-weight:700;
-    font-size:13px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
+    width:40px;height:40px;border-radius:10px;color:#fff;
+    font-weight:700;font-size:13px;display:flex;
+    align-items:center;justify-content:center;flex-shrink:0;
   }
   .area-info{flex:1;min-width:0}
   .area-name{font-weight:600;font-size:14px;margin-bottom:2px}
@@ -151,175 +130,71 @@
   .area.open .chev{transform:rotate(180deg)}
 
   .area-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
-  .area.open .area-body{max-height:3000px}
+  .area.open .area-body{max-height:5000px} /* Aumentado para caber o edital completo */
   .area-inner{padding:0 14px 14px}
 
-  .tip{
-    background:#F5F5F5;
-    border-radius:10px;
-    padding:12px;
-    font-size:12px;
-    color:#333;
-    margin-bottom:14px;
-    border-left:3px solid currentColor;
-  }
-
-  /* ===== DISCIPLINA ===== */
   .subject{margin-bottom:14px}
   .subject-name{
-    font-size:12px;
-    font-weight:700;
-    text-transform:uppercase;
-    color:var(--muted);
-    margin-bottom:8px;
-    letter-spacing:.05em;
+    font-size:12px;font-weight:700;text-transform:uppercase;
+    color:var(--muted);margin-bottom:8px;letter-spacing:.05em;
   }
 
-  /* ===== TÓPICOS ===== */
   .topic{
-    display:flex;
-    align-items:flex-start;
-    gap:10px;
-    padding:10px;
-    border-radius:8px;
-    cursor:pointer;
-    transition:background .2s;
-    margin-bottom:6px;
+    display:flex;align-items:flex-start;gap:10px;
+    padding:10px;border-radius:8px;cursor:pointer;
+    transition:background .2s;margin-bottom:6px;
   }
   .topic:hover{background:#F9F9F9}
   .topic.done .topic-text{color:var(--muted);text-decoration:line-through}
   
   .cb{
-    width:20px;
-    height:20px;
-    border:2px solid var(--line);
-    border-radius:6px;
-    flex-shrink:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transition:all .2s;
-    margin-top:2px;
+    width:20px;height:20px;border:2px solid var(--line);
+    border-radius:6px;flex-shrink:0;display:flex;
+    align-items:center;justify-content:center;transition:all .2s;margin-top:2px;
   }
   .topic.done .cb{border-color:currentColor;background:currentColor}
   .cb svg{width:11px;height:11px;stroke:#fff;opacity:0;transition:opacity .2s}
   .topic.done .cb svg{opacity:1}
 
-  .topic-text{
-    flex:1;
-    font-size:13px;
-    line-height:1.4;
-    color:var(--ink);
-  }
-  .serie-badge{
-    font-size:10px;
-    font-weight:700;
-    padding:3px 7px;
-    border-radius:4px;
-    white-space:nowrap;
-    margin-left:6px;
-    flex-shrink:0;
-  }
-  .serie-2{background:#E8F5E9;color:#2E7D32}
-  .serie-3{background:#FFF3E0;color:#E65100}
-  .serie-23{background:#F3E5F5;color:#6A1B9A}
+  .topic-text{flex:1;font-size:13px;line-height:1.4;color:var(--ink);}
 
-  /* ===== MODAL ===== */
+  /* ===== MODAL E FOOTER ===== */
   .guide-modal{
-    display:none;
-    position:fixed;
-    top:0;left:0;right:0;bottom:0;
-    background:rgba(0,0,0,.5);
-    z-index:999;
-    align-items:center;
-    justify-content:center;
-    padding:16px;
+    display:none;position:fixed;top:0;left:0;right:0;bottom:0;
+    background:rgba(0,0,0,.5);z-index:999;align-items:center;
+    justify-content:center;padding:16px;
   }
   .guide-modal.open{display:flex}
   .guide-card{
-    background:var(--surface);
-    border-radius:14px;
-    max-width:600px;
-    width:100%;
-    max-height:80vh;
-    overflow-y:auto;
-    padding:20px;
-    box-shadow:0 10px 40px rgba(0,0,0,.2);
+    background:var(--surface);border-radius:14px;max-width:600px;
+    width:100%;max-height:80vh;overflow-y:auto;padding:20px;
   }
   .guide-close{
-    float:right;
-    background:none;
-    border:none;
-    font-size:24px;
-    cursor:pointer;
-    color:var(--muted);
-    padding:0;
-    width:28px;
-    height:28px;
+    float:right;background:none;border:none;font-size:24px;
+    cursor:pointer;color:var(--muted);padding:0;width:28px;height:28px;
   }
-  .guide-title{
-    font-size:clamp(16px, 5vw, 20px);
-    font-weight:700;
-    margin-bottom:14px;
-    clear:both;
-    color:var(--ink);
-  }
-  .guide-body{
-    font-size:13px;
-    line-height:1.7;
-    color:#333;
-  }
-  .guide-body b{
-    display:block;
-    color:var(--ink);
-    font-weight:700;
-    margin-top:12px;
-    margin-bottom:4px;
-  }
-
-  /* ===== FOOTER ===== */
-  .footer{
-    text-align:center;
-    margin-top:30px;
-    padding-top:20px;
-    border-top:1px solid var(--line);
-  }
+  .guide-title{font-size:18px;font-weight:700;margin-bottom:14px;clear:both;}
+  .guide-body{font-size:13px;line-height:1.7;}
+  
+  .footer{text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid var(--line);}
   .reset-btn{
-    background:var(--surface);
-    border:1px solid var(--line);
-    color:var(--muted);
-    font-family:inherit;
-    font-size:13px;
-    font-weight:600;
-    padding:10px 20px;
-    border-radius:999px;
-    cursor:pointer;
-    transition:all .2s;
+    background:var(--surface);border:1px solid var(--line);color:var(--muted);
+    font-weight:600;padding:10px 20px;border-radius:999px;cursor:pointer;
   }
-  .reset-btn:active{transform:scale(.95)}
-  .save-note{font-size:12px;color:var(--muted);margin-top:12px;opacity:.7}
-
-  @media (max-width:600px){
-    .wrap{padding:10px}
-    .area-head{padding:12px;gap:10px}
-    .method-card{padding:12px;margin-bottom:10px}
-  }
-
-  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  .save-note{font-size:12px;color:var(--muted);margin-top:12px;}
 </style>
 </head>
 <body>
 
 <div class="wrap">
-
   <div class="hero">
     <div class="days-num" id="daysNum">—</div>
     <div class="days-label"><strong>dias</strong> até o ENEM 2026</div>
-    <div class="exam-info">📅 1º dia: 8 de novembro | 2º dia: 15 de novembro</div>
+    <div class="exam-info">📅 Matriz de Referência Oficial MEC (100% Edital)</div>
     
     <div class="progress-section">
       <div class="progress-header">
-        <span>Seu Progresso</span>
+        <span>Progresso Geral</span>
         <span class="progress-pct" id="progressText">0% (0/0)</span>
       </div>
       <div class="progress-wrap">
@@ -329,29 +204,18 @@
   </div>
 
   <div class="section">
-    <h2 class="sec-title">Como estudar</h2>
-    <p class="sec-intro">Método comprovado em 4 passos. Repita pra todo conteúdo:</p>
-    <div id="method"></div>
-  </div>
-
-  <div class="section">
-    <h2 class="sec-title">Cronograma (4 fases)</h2>
-    <p class="sec-intro">De hoje até a prova. Ajuste seus estudos conforme a fase:</p>
-    <div id="fases"></div>
-  </div>
-
-  <div class="section">
-    <h2 class="sec-title">Conteúdos por área</h2>
-    <p class="sec-intro">Clique para abrir. <span style="color:#E65100">🟠 3º ano</span> · <span style="color:#2E7D32">🟢 2º ano</span> · <span style="color:#6A1B9A">🟣 Ambos</span></p>
+    <h2 class="sec-title">O Edital Completo</h2>
+    <p class="sec-intro">Expanda as áreas. Cada tópico abaixo está alinhado à Matriz de Competências do MEC.</p>
     <div id="areas"></div>
   </div>
 
   <div class="footer">
-    <button class="reset-btn" id="resetBtn">↺ Zerar progresso</button>
-    <p class="save-note">Seu progresso é salvo localmente no seu navegador.</p>
+    <button class="reset-btn" id="resetBtn">↺ Zerar tudo</button>
+    <p class="save-note">Lembrete: Seu progresso é salvo no seu navegador (não use guia anônima).</p>
   </div>
-
 </div>
+
+<div id="toast">✔ Progresso Salvo!</div>
 
 <div class="guide-modal" id="guideModal">
   <div class="guide-card">
@@ -362,73 +226,74 @@
 </div>
 
 <script>
+// MATRIZ OFICIAL COMPLETA (Edital MEC 100%)
 const AREAS_DATA = [
   {
-    key:"lc", badge:"LC", color:"#E8674C", name:"Linguagens, Códigos e Tecnologias",
+    key:"lc", badge:"LC", color:"#E8674C", name:"Linguagens e Códigos",
     subjects:[
       {
-        name:"Língua Portuguesa",
+        name:"Língua Portuguesa e Gramática",
         topics:[
-          {txt:"Interpretação e gêneros textuais", serie:"2º-3º", guide:"Características de cada gênero (carta, conto, crônica, notícia, propaganda, artigo). Leia 2-3 textos por semana e identifique: (1) gênero, (2) público, (3) ideia principal, (4) objetivo do autor. ENEM: 30-35% das questões."},
-          {txt:"Letramento Digital e Fake News", serie:"3º", guide:"Como a informação circula nas redes. Identificação de viés, manipulação de imagens, bolhas sociais e algoritmos. ENEM adora cobrar interpretação de campanhas digitais e comportamento na internet."},
-          {txt:"Funções da linguagem", serie:"2º", guide:"6 funções: referencial, emotiva, apelativa, fática, poética, metalinguística. Identifique em comerciais, poemas e notícias. O ENEM cobra o objetivo principal do texto."},
-          {txt:"Figuras de linguagem", serie:"2º-3º", guide:"Metáfora, metonímia, comparação, hipérbole, ironia. Memorize exemplos reais. Entenda o EFEITO de sentido que geram no texto."},
-          {txt:"Variação linguística e norma culta", serie:"2º-3º", guide:"Norma culta vs coloquial, regionalismos. O MEC exige o entendimento do 'preconceito linguístico' e a adequação da fala ao contexto. Nenhuma variedade é errada em si mesma."},
-          {txt:"Sintaxe (crase, regência, concordância)", serie:"3º", guide:"Crase: substitua por 'ao'. Regência e Concordância. Estude aplicadas a textos, pois o ENEM raramente pede a regra seca, mas sim o uso correto."},
-          {txt:"Coesão, coerência e pontuação", serie:"2º-3º", guide:"Uso de conectivos (porém, portanto) e como a pontuação altera o sentido da frase. Fundamental também para a Redação."}
+          {txt:"Interpretação e Gêneros Textuais", guide:"O coração do ENEM. Identificar função de notícias, crônicas, charges e propagandas."},
+          {txt:"Letramento Digital e Fake News", guide:"Como a internet altera a linguagem, manipulação de discursos nas redes e bolhas sociais."},
+          {txt:"Funções da Linguagem", guide:"Referencial (informa), Emotiva (sentimento), Apelativa (convence), Fática (contato), Poética (forma), Metalinguística (código pelo código)."},
+          {txt:"Figuras de Linguagem", guide:"Metáfora, metonímia, hipérbole, eufemismo, ironia, antítese e paradoxo."},
+          {txt:"Variação Linguística", guide:"Adequação da linguagem ao contexto. Entendimento de que não existe 'certo/errado' absoluto, mas registro adequado. Combate ao preconceito linguístico."},
+          {txt:"Sintaxe e Semântica", guide:"Crase, regência, concordância verbal e nominal, sempre aplicadas ao contexto do texto (nunca decoreba solta)."},
+          {txt:"Coesão e Coerência", guide:"Uso de conectivos (pronomes, conjunções) para manter a lógica do texto. Cai pesado na prova e é vital para a Redação."}
         ]
       },
       {
         name:"Literatura",
         topics:[
-          {txt:"Romantismo e Realismo/Naturalismo", serie:"2º-3º", guide:"Romantismo (emoção, pátria) vs Realismo/Naturalismo (crítica social, ciência). Obras de Machado de Assis e Aluísio Azevedo."},
-          {txt:"Modernismo (As 3 gerações)", serie:"3º", guide:"1ª: ruptura. 2ª: prosa regional (Vidas Secas). 3ª: aprofundamento psicológico e estético (Clarice Lispector, Guimarães Rosa). Tema muito frequente."},
-          {txt:"Literatura Contemporânea e Diversidade", serie:"3º", guide:"Autores atuais e obras que abordam minorias e relações étnico-raciais (ex: Conceição Evaristo, Carolina Maria de Jesus, Itamar Vieira Junior). Foco do novo MEC."}
+          {txt:"Era Colonial e Romantismo", guide:"Quinhentismo (cartas de descobrimento), Barroco (dualidade) e Arcadismo. Romantismo (exaltação da pátria, indianismo, amor idealizado)."},
+          {txt:"Realismo e Naturalismo", guide:"Machado de Assis e Aluísio Azevedo. Crítica social, psicologia dos personagens, determinismo científico."},
+          {txt:"Modernismo (As 3 Gerações)", guide:"Semana de 22 (ruptura). Geração de 30 (romance regional, Vidas Secas). Geração de 45 (João Cabral, Clarice Lispector). É a escola que mais cai."},
+          {txt:"Literatura Contemporânea", guide:"Autores pós-1970. Vozes de minorias, literatura negra, indígena e poesia marginal."}
         ]
       },
       {
-        name:"Inglês/Espanhol",
+        name:"Língua Estrangeira e Artes",
         topics:[
-          {txt:"Estratégias de Leitura e Cognatos", serie:"2º-3º", guide:"Uso do contexto e palavras parecidas com o português (cognatos) para entender a ideia principal. O ENEM foca na interpretação, não em gramática pura."},
-          {txt:"Interpretação e Falsos Cognatos", serie:"3º", guide:"Identificação do objetivo de tirinhas, campanhas publicitárias e notícias estrangeiras. Cuidado com palavras como 'actually' (na verdade)."}
-        ]
-      },
-      {
-        name:"Arte e Educação Física",
-        topics:[
-          {txt:"Movimentos Artísticos e Arte Contemporânea", serie:"2º-3º", guide:"Renascimento, Vanguardas Europeias, Modernismo Brasileiro, Tropicália e arte de rua. Como a arte questiona a sociedade atual."},
-          {txt:"Corpo, Saúde e Esporte", serie:"2º-3º", guide:"Padrões de beleza, mercantilização do esporte, esportes paralímpicos e qualidade de vida. Saúde pública preventiva."}
+          {txt:"Inglês/Espanhol - Interpretação", guide:"Foco total em leitura de campanhas, tirinhas, letras de música e artigos. Cuidado redobrado com Falsos Cognatos."},
+          {txt:"Artes Visuais, Música e Teatro", guide:"Vanguardas Europeias (Cubismo, Surrealismo), Arte Contemporânea (instalações, grafite), elementos da música e função social do teatro."},
+          {txt:"Educação Física", guide:"Padrões de beleza, mercantilização do esporte, lutas, danças folclóricas e a relação corpo-saúde na sociedade moderna."}
         ]
       }
     ]
   },
   {
-    key:"ch", badge:"CH", color:"#E0A12E", name:"Ciências Humanas e Tecnologias",
+    key:"ch", badge:"CH", color:"#E0A12E", name:"Ciências Humanas",
     subjects:[
       {
-        name:"História",
+        name:"História (Brasil e Geral)",
         topics:[
-          {txt:"Brasil Colônia, Escravidão e Resistência", serie:"2º-3º", guide:"Economia açucareira/mineradora. É vital focar na resistência negra e indígena (Quilombos, revoltas). Diretriz da Lei 10.639."},
-          {txt:"Era Vargas e Ditadura Militar", serie:"2º-3º", guide:"Vargas: leis trabalhistas e censura. Ditadura Militar (1964-1985): repressão, censura, milagre econômico e redemocratização."},
-          {txt:"Revoluções e Guerras Mundiais", serie:"2º-3º", guide:"Revolução Industrial e Francesa. Primeira e Segunda Guerra, fascismo e nazismo. Guerra Fria e a divisão do mundo."},
-          {txt:"História e Cultura Africana/Indígena", serie:"2º-3º", guide:"A contribuição real de povos africanos e indígenas na formação do Brasil contemporâneo. Foco de cobrança do novo ENEM."}
+          {txt:"Antiguidade e Idade Média", guide:"Grécia (democracia ateniense) e Roma (república e direito). Idade Média: Feudalismo, papel da Igreja Católica e as Cruzadas."},
+          {txt:"Expansão Marítima e Brasil Colônia", guide:"Mercantilismo, escravização indígena e africana, economia açucareira, mineração e Revoltas Nativistas."},
+          {txt:"Império do Brasil", guide:"Independência, 1º Reinado, Período Regencial (revoltas) e 2º Reinado (café e abolição tardia)."},
+          {txt:"República Velha e Era Vargas", guide:"Coronelismo, voto de cabresto, revoltas urbanas (Vacina, Chibata). Vargas: populismo, CLT e Estado Novo (ditadura)."},
+          {txt:"Ditadura Militar (1964-1985)", guide:"Golpe, censura, AI-5, 'milagre econômico', guerrilhas e a campanha Diretas Já."},
+          {txt:"Revoluções Industriais e Francesa", guide:"Impactos do Iluminismo, queda do absolutismo e as três fases da Revolução Industrial."},
+          {txt:"Guerras Mundiais e Guerra Fria", guide:"Imperialismo, Nazifascismo, Holocausto. Mundo bipolar: EUA (capitalismo) vs URSS (socialismo)."},
+          {txt:"História da África e Indígena", guide:"Reinos africanos antes da escravidão. Lutas das populações originárias. Exigência da Lei 10.639."}
         ]
       },
       {
         name:"Geografia",
         topics:[
-          {txt:"Globalização e Nova Geopolítica", serie:"3º", guide:"Conflitos atuais (Ucrânia, Oriente Médio), ascensão da China e blocos econômicos. A interdependência no mundo globalizado."},
-          {txt:"Sustentabilidade e Aquecimento Global", serie:"2º-3º", guide:"O impacto do desmatamento (Amazônia/Cerrado), matrizes energéticas limpas, Acordo de Paris e as mudanças climáticas extremas."},
-          {txt:"Urbanização, Indústria e Agronegócio", serie:"2º-3º", guide:"Desigualdade urbana, mobilidade, favelização. No campo: conflitos agrários, modernização agrícola e agricultura familiar."},
-          {txt:"Demografia e Migrações", serie:"2º", guide:"Envelhecimento da população brasileira, crise de refugiados e migrações internas e externas."}
+          {txt:"Geopolítica e Globalização", guide:"Ordem mundial atual, ascensão da China, blocos econômicos (Mercosul, UE), conflitos no Oriente Médio e leste europeu."},
+          {txt:"Geografia Física e Meio Ambiente", guide:"Climas, relevo, hidrografia. Os Biomas brasileiros (Amazônia, Cerrado). Impactos ambientais: aquecimento global, desmatamento e Acordos Climáticos."},
+          {txt:"Demografia e Migrações", guide:"Transição demográfica, envelhecimento populacional no Brasil, refugiados e migrações internas (êxodo rural)."},
+          {txt:"Urbanização, Indústria e Agro", guide:"Favelização, mobilidade urbana. Modelos de produção (Fordismo, Toyotismo). Agronegócio, conflitos de terra e reforma agrária."}
         ]
       },
       {
         name:"Filosofia e Sociologia",
         topics:[
-          {txt:"Filosofia Antiga e Contratualistas", serie:"2º-3º", guide:"Sócrates, Platão e Aristóteles. Hobbes, Locke e Rousseau (a origem do Estado e da democracia)."},
-          {txt:"Novas Relações de Trabalho (Uberização)", serie:"3º", guide:"Precarização do trabalho, economia de plataforma (apps), empreendedorismo vs falta de direitos trabalhistas. Tema quentíssimo."},
-          {txt:"Movimentos Sociais e Direitos Humanos", serie:"2º-3º", guide:"Desigualdades estruturais (racismo, machismo). O papel dos movimentos sociais na conquista e garantia dos direitos civis."}
+          {txt:"Filosofia Antiga e Medieval", guide:"Pré-socráticos, Sócrates (maiêutica), Platão (Mundo das Ideias), Aristóteles. Patrística (Agostinho) e Escolástica (Tomás de Aquino)."},
+          {txt:"Filosofia Moderna e Contratualistas", guide:"Racionalismo (Descartes) vs Empirismo (Locke). Contrato Social: Hobbes, Locke e Rousseau. Ética de Kant."},
+          {txt:"Sociologia Clássica", guide:"Marx (luta de classes e mais-valia), Weber (ação social e desencantamento), Durkheim (fatos sociais e anomia)."},
+          {txt:"Mundo do Trabalho e Movimentos Sociais", guide:"Precarização, uberização. Luta por direitos civis (feminismo, movimento negro, LGBTQIA+). Cidadania e Direitos Humanos."}
         ]
       }
     ]
@@ -439,53 +304,61 @@ const AREAS_DATA = [
       {
         name:"Biologia",
         topics:[
-          {txt:"Ecologia e Impactos Ambientais", serie:"2º-3º", guide:"Cadeias alimentares, ciclos biogeoquímicos e bioacumulação. Entenda as causas da eutrofização, efeito estufa e poluição plástica."},
-          {txt:"Biotecnologia e Saúde Pública", serie:"3º", guide:"DNA recombinante, transgênicos, vacinas (como funcionam os soros e imunizações) e resistência bacteriana a antibióticos. Atualidade do MEC."},
-          {txt:"Fisiologia Humana e Citologia", serie:"2º-3º", guide:"Funções das organelas (mitocôndria, cloroplasto). Sistemas: digestório, circulatório, imunológico e endócrino."},
-          {txt:"Genética e Evolução", serie:"2º-3º", guide:"1ª Lei de Mendel. Seleção natural de Darwin vs Lamarckismo. A evolução como fator de adaptação das espécies."}
+          {txt:"Ecologia", guide:"Cadeias alimentares, ciclos biogeoquímicos (água, carbono, nitrogênio), relações ecológicas (mutualismo, parasitismo) e desequilíbrios ambientais (eutrofização, lixo)."},
+          {txt:"Citologia e Fisiologia", guide:"Organelas celulares (mitocôndrias, ribossomos). Sistemas humanos: digestório, circulatório, respiratório, nervoso e endócrino."},
+          {txt:"Genética e Biotecnologia", guide:"Leis de Mendel, grupos sanguíneos. DNA recombinante, clonagem, transgênicos, vacinas e soros (imunologia)."},
+          {txt:"Evolução", guide:"Lamarck vs Darwin. Seleção natural, mutação, especiação e resistência a antibióticos/pesticidas."},
+          {txt:"Botânica e Zoologia", guide:"Grupos de plantas (briófitas a angiospermas) e suas adaptações. Características gerais dos vertebrados e invertebrados. Doenças parasitárias (Chagas, Dengue, Malária)."}
         ]
       },
       {
         name:"Química",
         topics:[
-          {txt:"Química Ambiental", serie:"2º-3º", guide:"Reações por trás da chuva ácida, destruição da camada de ozônio e tratamento de água/esgoto."},
-          {txt:"Estequiometria e Soluções", serie:"3º", guide:"Cálculo de massas e reagentes limitantes. Concentração de soluções (mol/L) e processos de diluição."},
-          {txt:"Química Orgânica", serie:"3º", guide:"Identificação de funções (álcool, ácido carboxílico, amina), propriedades dos compostos e polímeros (plásticos)."},
-          {txt:"Eletroquímica e Termoquímica", serie:"2º-3º", guide:"Pilhas, baterias e oxirredução. Reações endotérmicas vs exotérmicas. Entalpia e energia limpa."}
+          {txt:"Química Geral e Atomística", guide:"Modelos atômicos, tabela periódica, ligações químicas (iônica, covalente, metálica) e polaridade das moléculas."},
+          {txt:"Físico-Química (Soluções e Estequiometria)", guide:"Cálculo de mols e massa. Concentração de soluções (mol/L). Propriedades coligativas."},
+          {txt:"Termoquímica e Eletroquímica", guide:"Reações endotérmicas e exotérmicas (entalpia). Oxirredução, funcionamento de pilhas e eletrólise."},
+          {txt:"Química Orgânica", guide:"Cadeias carbônicas, identificação de funções orgânicas (álcool, cetona, ácido carboxílico), isomeria e polímeros."},
+          {txt:"Química Ambiental e Radioatividade", guide:"Chuva ácida, efeito estufa, tratamento de água. Partículas alfa, beta e gama, meia-vida e energia nuclear."}
         ]
       },
       {
         name:"Física",
         topics:[
-          {txt:"Mecânica (Cinemática, Leis de Newton, Energia)", serie:"2º-3º", guide:"Interpretação de gráficos de movimento. Conservação de energia mecânica e trabalho."},
-          {txt:"Eletricidade, Circuitos e Eficiência Energética", serie:"2º-3º", guide:"Cálculo de potência e consumo de energia (conta de luz). Circuitos em série e paralelo. Transição energética."},
-          {txt:"Termologia e Ondulatória", serie:"2º", guide:"Calorimetria, propagação de calor. Em ondulatória: acústica, espectro eletromagnético e fenômenos (refração, difração, interferência)."}
+          {txt:"Mecânica (Cinemática e Dinâmica)", guide:"Movimento uniforme e acelerado (gráficos). Leis de Newton, força de atrito, trabalho, potência e conservação da Energia Mecânica."},
+          {txt:"Termologia", guide:"Escalas termométricas, calorimetria (calor sensível e latente), propagação de calor e Leis da Termodinâmica."},
+          {txt:"Óptica e Ondulatória", guide:"Reflexão (espelhos), refração (lentes e olho humano). Fenômenos ondulatórios (interferência, difração, ressonância, efeito Doppler)."},
+          {txt:"Eletricidade e Eletromagnetismo", guide:"Circuitos elétricos (série e paralelo), Leis de Ohm, cálculo de consumo de energia (kWh). Ímãs, campo magnético e indução de Faraday (como funcionam as usinas)."},
+          {txt:"Física Moderna", guide:"Efeito fotoelétrico (fótons), dualidade onda-partícula e noções básicas da relatividade de Einstein."}
         ]
       }
     ]
   },
   {
-    key:"mt", badge:"MT", color:"#3E63DD", name:"Matemática e suas Tecnologias",
+    key:"mt", badge:"MT", color:"#3E63DD", name:"Matemática",
     subjects:[
       {
-        name:"Matemática Básica",
+        name:"Matemática Básica e Financeira",
         topics:[
-          {txt:"Educação Financeira, Porcentagem e Juros", serie:"2º-3º", guide:"Juros simples e compostos aplicados à realidade: financiamentos, investimentos, inflação e descontos. Foco MEC: cidadania financeira."},
-          {txt:"Razão, Proporção e Regra de 3", serie:"2º-3º", guide:"Base de 30% da prova. Escalas de mapas, grandezas diretas e inversamente proporcionais e conversão de unidades."}
+          {txt:"Razão, Proporção e Escalas", guide:"Regra de três simples e composta. Grandezas diretamente e inversamente proporcionais. Escalas de mapas e maquetes (assunto certo na prova)."},
+          {txt:"Porcentagem e Juros", guide:"Educação financeira: aumentos, descontos, juros simples e compostos. Cálculo de lucros."},
+          {txt:"Estatística e Análise de Dados", guide:"Média aritmética (simples e ponderada), moda, mediana e desvio padrão. Interpretação exaustiva de gráficos e tabelas."}
         ]
       },
       {
-        name:"Álgebra e Geometria",
+        name:"Álgebra e Funções",
         topics:[
-          {txt:"Funções (1º, 2º grau e Exponencial)", serie:"2º-3º", guide:"Análise de gráficos. A função exponencial é muito cobrada para representar crescimento de bactérias ou vírus."},
-          {txt:"Geometria Plana e Espacial", serie:"2º-3º", guide:"Cálculo de áreas (triangles, círculos) e volumes (cilindro, cone, prisma). Frequentemente associado a capacidade de reservatórios ou embalagens."}
+          {txt:"Funções de 1º e 2º Grau", guide:"Leitura de gráficos, cálculo de raízes, vértices da parábola (valor máximo ou mínimo de uma situação)."},
+          {txt:"Função Exponencial e Logaritmos", guide:"Análise de crescimento populacional ou decaimento radioativo. Propriedades básicas de logaritmos."},
+          {txt:"Matrizes e Sistemas Lineares", guide:"Operações básicas com matrizes para organizar dados em tabelas. Resolução de sistemas de equações (frequentemente contextualizados com compras ou misturas)."}
         ]
       },
       {
-        name:"Estatística e Probabilidade",
+        name:"Geometria e Análise Combinatória",
         topics:[
-          {txt:"Análise de Dados e Estatística", serie:"2º-3º", guide:"Média, moda, mediana e desvio padrão. Leitura crítica de infográficos, letramento em dados (fake news estatísticas)."},
-          {txt:"Probabilidade e Análise Combinatória", serie:"3º", guide:"Cálculo de chances em eventos independentes. Diferença entre arranjo e combinação (a ordem importa?)."}
+          {txt:"Geometria Plana", guide:"Teorema de Pitágoras, cálculo de áreas e perímetros (círculos, triângulos, trapézios e polígonos regulares)."},
+          {txt:"Geometria Espacial", guide:"Volume e área de superfície de prismas, cilindros, cones e esferas. Visão 3D e projeção ortogonal."},
+          {txt:"Trigonometria", guide:"Seno, cosseno e tangente no triângulo retângulo. Lei dos senos e cossenos para triângulos quaisquer. Funções trigonométricas (gráficos de onda)."},
+          {txt:"Análise Combinatória e Probabilidade", guide:"Princípio Fundamental da Contagem. Arranjo (ordem importa) vs Combinação (ordem não importa). Probabilidade de eventos independentes (regra do 'e' vs 'ou')."}
         ]
       }
     ]
@@ -494,106 +367,58 @@ const AREAS_DATA = [
     key:"rd", badge:"RD", color:"#8B5C9E", name:"Redação",
     subjects:[
       {
-        name:"Estrutura e Competências",
+        name:"Estrutura e Execução",
         topics:[
-          {txt:"Estrutura Dissertativo-Argumentativa", serie:"2º-3º", guide:"Introdução (tese explícita), Desenvolvimento (causa e consequência), Conclusão com Proposta."},
-          {txt:"As 5 Competências do ENEM", serie:"2º-3º", guide:"C1: Gramática. C2: Tema e Repertório. C3: Argumentação e Projeto de Texto. C4: Coesão. C5: Proposta de Intervenção."},
-          {txt:"Repertório Sociocultural Curinga", serie:"2º-3º", guide:"Memorize citações versáteis (Constituição, Zygmunt Bauman, Milton Santos, dados do IBGE)."},
-          {txt:"Proposta de Intervenção Completa", serie:"2º-3º", guide:"Os 5 elementos obrigatórios: Agente, Ação, Meio/Modo, Efeito e Detalhamento. Exemplo: 'O Ministério (Agente) deve criar... (Ação)'"}
+          {txt:"As 5 Competências", guide:"1: Gramática. 2: Tema e estrutura. 3: Projeto de texto e argumentação. 4: Conectivos (coesão). 5: Proposta de intervenção."},
+          {txt:"Introdução e Tese", guide:"Contextualização (repertório) + Tese clara (opinião que será defendida dividida em dois argumentos)."},
+          {txt:"Desenvolvimento e Repertório", guide:"Uso de dados, filosofia, história ou artes para embasar a argumentação (Causa e Consequência). Sem repertório validado, a nota trava."},
+          {txt:"Proposta de Intervenção", guide:"Criação de solução com 5 elementos obrigatórios: Agente (Quem?), Ação (O quê?), Modo/Meio (Como?), Efeito (Para quê?) e Detalhamento (exemplo ou especificação)." }
         ]
       }
     ]
   }
 ];
 
-const METHOD = [
-  {ico:"📖", txt:"Aprenda a teoria", desc:"Leia/assista o conteúdo e faça um resumo curto com suas palavras. Resumir é metade do aprendizado."},
-  {ico:"✍️", txt:"Resolva questões", desc:"Logo após a teoria, faça questões ENEM daquele tema. É o que mais fixa e mostra como cobram."},
-  {ico:"🔁", txt:"Revise com espaçamento", desc:"Volte ao tópico depois de 1 dia, 1 semana e 1 mês. Revisão espaçada vence o esquecimento."},
-  {ico:"🧪", txt:"Simule a prova", desc:"Da Fase 3 em diante, faça simulados completos no horário real pra ganhar resistência e ritmo."}
-];
-
-const FASES = [
-  {num:"1", name:"Fundamentos", date:"15/jun – 26/jul", desc:"Construa base nos conteúdos mais cobrados. Comece redação 1×/semana sem pressão."},
-  {num:"2", name:"Aprofundamento", date:"27/jul – 13/set", desc:"Conteúdos intermediários + questões por tema todos dias. Redações cronometradas (1h30)."},
-  {num:"3", name:"Simulados", date:"14/set – 18/out", desc:"Simulados completos 1–2×/semana. Corrija tudo, ataque pontos fracos."},
-  {num:"4", name:"Revisão final", date:"19/out – 07/nov", desc:"Revisão leve com resumos e fórmulas. Redações cronometradas. Durma bem na semana prova."}
-];
-
 let state = { checks:{} };
-
-// ========= FUNÇÕES NATIVAS DO NAVEGADOR (CORRIGIDAS) =========
 
 function loadState(){
   try {
     const saved = localStorage.getItem("enem2026-progress");
-    if (saved) {
-      state = JSON.parse(saved);
-    }
-  } catch(e) {
-    console.error("Erro ao carregar o progresso:", e);
-  }
-  
-  // Se for a primeira vez acessando, cria o objeto vazio
-  if(!state.checks) {
-    state.checks = {};
-  }
+    if (saved) state = JSON.parse(saved);
+  } catch(e) {}
+  if(!state.checks) state.checks = {};
 }
 
 function saveState(){
   try {
     localStorage.setItem("enem2026-progress", JSON.stringify(state));
+    showToast();
   } catch(e) {
-    console.error("Erro ao salvar o progresso:", e);
-    alert("Seu navegador está bloqueando o salvamento. Verifique se você não está em Guia Anônima.");
+    alert("Erro: Seu navegador está bloqueando a memória (Talvez Guia Anônima?).");
   }
 }
 
-// =============================================================
+function showToast() {
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2000);
+}
 
 function renderCountdown(){
   const exam = new Date("2026-11-08T00:00:00");
-  const now = new Date();
-  const diff = Math.max(0, Math.round((exam - now)/86400000));
+  const diff = Math.max(0, Math.round((exam - new Date())/86400000));
   document.getElementById("daysNum").textContent = diff;
 }
 
 function updateProgress(){
-  let total = 0;
-  let done = 0;
-
-  AREAS_DATA.forEach((a) => {
-    a.subjects.forEach((s) => {
-      s.topics.forEach((t, ti) => {
-        total++;
-        const id = `${a.key}-${a.subjects.indexOf(s)}-${ti}`;
-        if(state.checks[id]) done++;
-      });
-    });
-  });
-
+  let total = 0, done = 0;
+  AREAS_DATA.forEach(a => a.subjects.forEach(s => s.topics.forEach((t, ti) => {
+    total++;
+    if(state.checks[`${a.key}-${a.subjects.indexOf(s)}-${ti}`]) done++;
+  })));
   const pct = total === 0 ? 0 : Math.round((done / total) * 100);
   document.getElementById("progressBar").style.width = pct + "%";
   document.getElementById("progressText").textContent = `${pct}% (${done}/${total})`;
-}
-
-function renderMethod(){
-  const html = METHOD.map(m=>`
-    <div class="method-card">
-      <div class="method-ico">${m.ico}</div>
-      <div><b>${m.txt}</b> <span>${m.desc}</span></div>
-    </div>`).join("");
-  document.getElementById("method").innerHTML = html;
-}
-
-function renderFases(){
-  const html = FASES.map(f=>`
-    <div class="fase f${f.num}">
-      <div class="fase-name">Fase ${f.num} — ${f.name}</div>
-      <div class="fase-date">${f.date}</div>
-      <div class="fase-desc">${f.desc}</div>
-    </div>`).join("");
-  document.getElementById("fases").innerHTML = html;
 }
 
 function renderAreas(){
@@ -604,12 +429,11 @@ function renderAreas(){
         ${s.topics.map((t, ti)=>{
           const id = `${a.key}-${si}-${ti}`;
           const done = !!state.checks[id];
-          const serieBadge = `<span class="serie-badge serie-${t.serie.includes('-')?'23':t.serie.includes('3')?'3':'2'}">${t.serie}</span>`;
           return `<div class="topic ${done?'done':''}" data-id="${id}">
             <span class="cb" style="${done?`background:${a.color};border-color:${a.color};`:''}">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </span>
-            <span class="topic-text">${t.txt}${serieBadge}</span>
+            <span class="topic-text">${t.txt}</span>
           </div>`;
         }).join("")}
       </div>`).join("");
@@ -617,107 +441,67 @@ function renderAreas(){
     return `<div class="area">
       <div class="area-head">
         <div class="area-badge" style="background:${a.color}">${a.badge}</div>
-        <div class="area-info">
-          <div class="area-name">${a.name}</div>
-        </div>
+        <div class="area-info"><div class="area-name">${a.name}</div></div>
         <span class="chev">›</span>
       </div>
-      <div class="area-body">
-        <div class="area-inner">
-          <div class="tip">💡 Toque num tópico pra ver o guia de estudos. Clique na checkbox pra marcar como feito.</div>
-          ${subs}
-        </div>
-      </div>
+      <div class="area-body"><div class="area-inner">${subs}</div></div>
     </div>`;
   }).join("");
 
   document.getElementById("areas").innerHTML = html;
 
-  // Abrir/fechar
-  document.querySelectorAll(".area-head").forEach(h=>{
-    h.addEventListener("click", ()=>{
-      const area = h.closest(".area");
-      area.classList.toggle("open");
-    });
+  // Interatividade: Abrir/Fechar Áreas
+  document.querySelectorAll(".area-head").forEach(h => {
+    h.addEventListener("click", () => h.closest(".area").classList.toggle("open"));
   });
 
-  // Cliques em tópicos
-  document.querySelectorAll(".topic").forEach(el=>{
-    el.addEventListener("click", (e)=>{
+  // Interatividade: Marcar Checkbox ou Abrir Guia
+  document.querySelectorAll(".topic").forEach(el => {
+    el.addEventListener("click", (e) => {
       const id = el.dataset.id;
-
-      // Se clica na checkbox, marca
       if(e.target.closest(".cb")){
         state.checks[id] = !state.checks[id];
         el.classList.toggle("done");
         
-        // Atualiza estilo visual da checkbox dinamicamente
         const cb = el.querySelector(".cb");
-        const areaColor = cb.parentElement.parentElement.parentElement.parentElement.querySelector(".area-badge").style.backgroundColor;
+        const areaColor = cb.closest(".area").querySelector(".area-badge").style.backgroundColor;
         
         if(state.checks[id]){
-          cb.style.background = areaColor;
-          cb.style.borderColor = areaColor;
+          cb.style.background = areaColor; cb.style.borderColor = areaColor;
         } else {
-          cb.style.background = "";
-          cb.style.borderColor = "";
+          cb.style.background = ""; cb.style.borderColor = "";
         }
         
         saveState();
-        updateProgress(); // Atualiza a barrinha lá em cima
+        updateProgress();
         return;
       }
-
-      // Se clica no texto, abre guia
-      const parts = id.split("-");
-      const key = parts[0], si = parseInt(parts[1]), ti = parseInt(parts[2]);
-      const area = AREAS_DATA.find(a => a.key === key);
-      if(area){
-        const topic = area.subjects[si].topics[ti];
-        showGuide(topic.txt, topic.guide);
-      }
+      // Abrir modal de ajuda
+      const [key, si, ti] = id.split("-");
+      const topic = AREAS_DATA.find(a => a.key === key).subjects[si].topics[ti];
+      document.getElementById("guideTitle").textContent = topic.txt;
+      document.getElementById("guideBody").textContent = topic.guide;
+      document.getElementById("guideModal").classList.add("open");
     });
   });
 
+  // Botão Zerar
   document.getElementById("resetBtn").addEventListener("click", ()=>{
-    if(confirm("Zerar tudo? Você perderá seu progresso.")){
-      state = { checks:{} };
-      saveState();
-      location.reload();
+    if(confirm("Zerar tudo?")){
+      state = { checks:{} }; saveState(); location.reload();
     }
   });
 }
 
-function showGuide(title, guide){
-  document.getElementById("guideTitle").textContent = title;
-  document.getElementById("guideBody").textContent = guide;
-  document.getElementById("guideModal").classList.add("open");
-}
+// Fechar Modal
+document.getElementById("guideClose").addEventListener("click", () => document.getElementById("guideModal").classList.remove("open"));
+document.getElementById("guideModal").addEventListener("click", (e) => { if(e.target.id === "guideModal") e.target.classList.remove("open") });
 
-document.getElementById("guideClose").addEventListener("click", ()=>{
-  document.getElementById("guideModal").classList.remove("open");
-});
-
-document.getElementById("guideModal").addEventListener("click", (e)=>{
-  if(e.target.id === "guideModal"){
-    document.getElementById("guideModal").classList.remove("open");
-  }
-});
-
-document.addEventListener("keydown", (e)=>{
-  if(e.key === "Escape"){
-    document.getElementById("guideModal").classList.remove("open");
-  }
-});
-
-// Inicialização agora puramente nativa
+// Inicia
 loadState();
 renderCountdown();
-renderMethod();
-renderFases();
 renderAreas();
 updateProgress();
-
 </script>
 
 </body>
