@@ -325,4 +325,374 @@
 </div>
 
 <script>
-const AREAS_DATA =
+const AREAS_DATA = [
+  {
+    key:"lc", badge:"LC", color:"#E8674C", name:"Linguagens, Códigos e Tecnologias",
+    subjects:[
+      {
+        name:"Língua Portuguesa",
+        topics:[
+          {txt:"Interpretação e gêneros textuais", serie:"2º-3º", guide:"Características de cada gênero (carta, conto, crônica, notícia, propaganda, artigo). Leia 2-3 textos por semana e identifique: (1) gênero, (2) público, (3) ideia principal, (4) objetivo do autor. ENEM: 30-35% das questões. Dica: volta ao texto sempre, nunca confie em palpite."},
+          {txt:"Funções da linguagem", serie:"2º", guide:"6 funções: referencial (informar), emotiva (emoção), apelativa (convencer), fática (contato), poética (arte), metalinguística (falar sobre linguagem). Identifique em: 1 comercial, 1 poema, 1 notícia, 1 carta. ENEM: 2-3 vezes. Dica: uma frase pode ter mais de uma, mas uma dominará."},
+          {txt:"Figuras de linguagem", serie:"2º-3º", guide:"Metáfora, metonímia, comparação, hipérbole, aliteração, assonância, ironia, antítese, paradoxo, sinestesia. Memorize exemplos reais. Leia um poema, sublinhe e nomeie as figuras. ENEM: 2-4 vezes. Dica: entenda o EFEITO (hipérbole exagera, ironia inverte, metáfora compara)."},
+          {txt:"Variação linguística", serie:"2º-3º", guide:"Denotação vs conotação. Norma culta vs coloquial. Variação regional/social/temporal. Preconceito linguístico (falso mito). Leia: bate-papo, música, romance, jornal. Identifique mudanças de registro. ENEM: contextualizou. Dica: toda variedade linguística é válida em seu contexto."},
+          {txt:"Sintaxe (crase, regência, concordância)", serie:"3º", guide:"CRASE: fusão 'a' preposição + 'a' artigo. Substitua por 'ao' (se virar 'ao', tem crase). REGÊNCIA: preposição certa com verbo. CONCORDÂNCIA: sujeito+verbo, nome+adjetivo mesmos número/pessoa. Faça 10-15 questões de cada. ENEM: 3-5 vezes. Dica: estude em textos, não isolado."},
+          {txt:"Coesão e coerência", serie:"2º-3º", guide:"Coesão = conectivos ligando ideias (porém, então, portanto). Coerência = sentido lógico. Pegue parágrafo, sublinhe conectivos, releia: faz sentido? ENEM: texto com trecho faltando + 5 opções. Aparecem 3-4 vezes. Dica: leia antes E depois do espaço em branco."},
+          {txt:"Pontuação e sentido", serie:"2º", guide:"Vírgula, ponto, travessão, aspas, reticências MUDAM sentido. Ex: 'Não, mate.' vs 'Não mate.' Leia frases com pontuação diferente. Qual mudança? Por quê? ENEM: 1-2 vezes. Dica: leia em voz alta — pontuação é onde você pausaria."}
+        ]
+      },
+      {
+        name:"Literatura",
+        topics:[
+          {txt:"Romantismo", serie:"2º-3º", guide:"Séc. XIX. Emoção > razão, natureza, nacionalismo, eu lírico exaltado, morte, amor impossível. Autores: Gonçalves Dias (Indianismo), Castro Alves (poesia social). Leia 2-3 poemas. Identifique: tema, sentimento, contexto. ENEM: 1-2 vezes. Dica: Romantismo = emoção. Saudade, pátria, amor não realizado."},
+          {txt:"Realismo/Naturalismo", serie:"3º", guide:"Realismo: crítica social, personagens comuns, descrição detalhada. Naturalismo: hereditariedade/meio determinam pessoa. Autores: Machado de Assis, Aluísio Azevedo. Leia resumo Dom Casmurro. Conceitos: narrador não confiável, ironia, crítica. ENEM: 1-2 vezes. Dica: Realismo = crítica. Naturalismo = ciência (determinismo)."},
+          {txt:"Modernismo (gerações)", serie:"3º", guide:"1ª (1922): ruptura, liberdade formal, antropofagia. / 2ª (1930s): prosa, regional. / 3ª (1950s): poesia sofisticada. Leia: 'Memórias Miramar' (Oswald), 'Vidas Secas' (Graciliano), 'Morte e Vida Severina' (João Cabral). ENEM: 2-3 vezes. Dica: cada geração tem 'cara' própria."},
+          {txt:"Literatura contemporânea", serie:"3º", guide:"Posterior aos anos 1970. Temas: identidade, tecnologia, diversidade, memória. Autores: Conceição Evaristo, Itamar Vieira Junior. Leia contos/excertos. Identifique: tema, perspectiva, inovações. ENEM: 0-1 vezes. Dica: contemporâneo não é decoreba — é leitura e interpretação."},
+          {txt:"Texto e contexto histórico", serie:"2º-3º", guide:"Como História influencia Literatura. Ex: escravidão → Castro Alves; Ditadura → Saramago. Para cada obra: 'Quando foi escrita? O que acontecia? Como aparece na obra?' ENEM: 2-3 vezes em interpretação. Dica: Literatura é espelho de sua época."}
+        ]
+      },
+      {
+        name:"Inglês/Espanhol",
+        topics:[
+          {txt:"Estratégias e cognatos", serie:"2º-3º", guide:"Cognatos são palavras iguais/semelhantes (technology=tecnologia). Use pra adivinhar sentido. Leia 2-3 textos/semana. Sublinhe desconhecidas, chute se é cognato. ENEM: 5 questões (inglês ou espanhol). Dica: não precisa entender palavra por palavra — entenda ideia geral."},
+          {txt:"Interpretação de textos", serie:"2º-3º", guide:"Qual é assunto? Quem escreveu? Para quem? Qual mensagem? Leia 2-3 textos em inglês/espanhol por semana (notícias, revista). Responda: qual ideia central? ENEM: texto + pergunta em português. Dica: não é teste vocabulário — contexto ajuda a entender."},
+          {txt:"Vocabulário e falsos cognatos", serie:"3º", guide:"Falsos cognatos: actual=atual (não 'atual'), embarrassed=envergonhado (não 'embaraçado'). Memorize 15-20 principais. Faça lista, revise toda semana. ENEM: em interpretação. Um falso cognato muda resposta. Dica: quando parecer 'suspeito', é provavelmente falso cognato."}
+        ]
+      },
+      {
+        name:"Arte e Educação Física",
+        topics:[
+          {txt:"Movimentos artísticos", serie:"2º-3º", guide:"Renascença (humanismo), Barroco (dramaticidade), Neoclassicismo (razão), Romantismo (emoção), Realismo (crítica), Impressionismo (luz), Modernismo (inovação), Surrealismo (inconsciente). Veja imagens: 1 obra de cada movimento. Identifique características. ENEM: 1-2 vezes. Dica: reconheça estilo, não decore pintores."},
+          {txt:"Corpo, saúde e esporte", serie:"2º-3º", guide:"Como corpo é visto em diferentes épocas. Saúde pública, exercício, inclusão deficientes, corpo e mídia, disordens. Leia matérias sobre políticas públicas de esporte, inclusão, pressão estética nas redes. ENEM: 1-2 vezes com crítica. Dica: ENEM conecta esporte/corpo com direitos humanos."},
+          {txt:"Tecnologias da comunicação", serie:"3º", guide:"Internet/redes mudam comunicação. Cibercultura, linguagem digital (emojis, memes, abreviações), ética online, desinformação. Observe como você fala em chat/redes vs português formal. Qual diferença? Por quê? ENEM: 0-1 vezes. Dica: linguagem digital é válida — ENEM analisa, não reprova."}
+        ]
+      }
+    ]
+  },
+  {
+    key:"ch", badge:"CH", color:"#E0A12E", name:"Ciências Humanas e Tecnologias",
+    subjects:[
+      {
+        name:"História",
+        topics:[
+          {txt:"Brasil Colônia e escravidão", serie:"2º-3º", guide:"1500–1822. Capitanias hereditárias, latifúndio, monocultura, indígenas depois africanos, quilombos (Palmares). Faça linha: 1500 → 1580 → 1750 → 1808 → 1822. Para cada década: governo, economia, conflitos. Escravidão é FUNDAMENTAL. ENEM: 2-3 vezes. Dica: estude resistência escravizada e legado."},
+          {txt:"Império e Primeira República", serie:"2º", guide:"Império (1822–1889): centralismo, café-com-leite, abolição. República (1889–1930): coronelismo, voto cabresto, federalismo. Quem tinha poder? Imperador vs Congresso? Coronéis vs povo? ENEM: 2-3 vezes. Dica: café-com-leite = fazendeiros São Paulo + Minas mandavam."},
+          {txt:"Era Vargas", serie:"2º-3º", guide:"1930–1945. Getúlio: populismo, trabalhismo, CLT, censura (DIP), industrialização, ditadura (1937–45). Eventos: 1930 (golpe) → 1934 (Constituição) → 1937 (Estado Novo) → 1945 (queda). Como conquistava apoio e censurava? ENEM: 1-2 vezes. Dica: Vargas é contraditório: desenvolveu MAS foi ditador."},
+          {txt:"Ditadura Militar e redemocratização", serie:"3º", guide:"1964–1985. Golpe, porquê? Repressão, censura, 'milagre econômico' (falso), luta armada, anistia. Estude paralelo: censura/tortura MAS crescimento econômico. Datas: 1964 → 1968 (AI-5) → 1974 (abertura) → 1979 (anistia) → 1985 (Tancredo). ENEM: 2-3 vezes. Dica: 'milagre' entre aspas — crescimento não beneficiou povo."},
+          {txt:"Revoluções (Industrial, Francesa)", serie:"2º-3º", guide:"Industrial (séc. XVIII–XIX): mecanização, fábricas, capitalismo, proletariado. Francesa (1789): queda monarquia, iluminismo, direitos humanos, Terror. Industrial: como mudar artesanato para máquinas transformou trabalho? Francesa: por quê revolta? Quem conspirava? Resultado? ENEM: 1-2 vezes. Dica: essas revoluções formam base mundo moderno."},
+          {txt:"Guerras Mundiais e Guerra Fria", serie:"2º-3º", guide:"WWI (1914–18): imperialismo, aliados vs eixo. WWII (1939–45): nazismo, holocausto, bomba atômica. Guerra Fria (1945–91): EUA vs URSS, bipolaridade, corrida armamentista. Entenda causas, consequências. Brasil: alinhamento EUA. ENEM: 2-3 vezes. Dica: Guerra Fria ainda ecoa (Rússia-Ucrânia, Taiwan)."},
+          {txt:"História da África e indígena", serie:"2º-3º", guide:"África tem história MIL ANOS antes colonização. Reinos Mali, Songai, Bantu. Indígenas: maias, astecas, incas, tupi-guarani. Colonialismo: roubou, matou, escravizou. Leia um texto sobre reinos africanos. Escreva: governo? economia? cultura? Como colonialismo destruiu? ENEM: 1-2 vezes. Dica: Lei 10.639 obriga história africana."}
+        ]
+      },
+      {
+        name:"Geografia",
+        topics:[
+          {txt:"Globalização e geopolítica", serie:"3º", guide:"Fluxos (pessoas, capital, informação). Interdependência, multinacionais, desigualdades. Poder países (EUA, China, Rússia). Conflitos (Oriente Médio, Taiwan, Ucrânia). Blocos (UE, Mercosul). Leia notícia China-EUA. Qual interesse? Como impacta Brasil? ENEM: 2-3 vezes. Dica: geopolítica é ATUAL — acompanhe notícias."},
+          {txt:"Cartografia e fusos", serie:"2º", guide:"Ler mapa: escala, projeção (Mercator distorce), símbolos, cores. Fusos: Terra gira 360° em 24h = 15°/hora. Brasil tem 4 fusos. Pegue mapa. Identifique: escala? projeção? símbolos? Com fusos: se 12h Londres, qual hora São Paulo? (9h verão, 8h inverno). ENEM: 1-2 vezes. Dica: lógica (15°=1h) > decorar fusos."},
+          {txt:"Climas, biomas e domínios", serie:"2º-3º", guide:"Latitude, longitude, altitude, oceanos determinam clima. Biomas: tropical, savana, deserto, taiga. Brasil: Amazônia, Cerrado, Caatinga, Mata Atlântica, Pantanal. Pegue 3 cidades. Pesquise: clima, vegetação, fauna, problema ambiental. Por quê Amazônia é floresta? Por quê Nordeste é seco? ENEM: 2-3 vezes. Dica: Equador=quente/úmido. Trópicos=seco. Polos=frio."},
+          {txt:"Urbanização e indústria", serie:"2º", guide:"Industrialização Brasil: 1950s–60s (substituição importação), 1970s (pesada), 1990s+ (desindustrialização seletiva). Urbanização: êxodo rural, favelas, segregação. Cidades: qual função (industrial, terciário, portuária)? Compare sua cidade: 20 anos atrás vs agora. Mudou? Indústrias saíram? ENEM: 2-3 vezes. Dica: indústria + urbanização = desigualdade + poluição."},
+          {txt:"Agricultura e questão agrária", serie:"2º-3º", guide:"Agronegócio Brasil: monocultura (soja, cana), commodities, latifúndio, mecanização. Luta: sem-terra, reforma agrária, agricultura familiar. Dados: quantas pessoas na terra? % produção exportação vs consumo? Impacto ambiental (Amazônia queimada por gado)? ENEM: 1-2 vezes. Dica: agronegócio é polêmico — lucra, destrói ambiente."},
+          {txt:"Energia e meio ambiente", serie:"2º-3º", guide:"Matriz energética Brasil: hidrelétrica (60%), fósseis, crescimento eólica/solar. Mudanças climáticas, desmatamento, poluição. Acordos (Paris, Kyoto). ESG. De onde vem energia da sua casa? Qual país usa mais carvão? Impacto CO2? ENEM: 2-3 vezes. Dica: Brasil 'verde' em hidrelétrica, mas desmata pra gado."},
+          {txt:"Demografia e migrações", serie:"2º", guide:"Taxa natalidade, mortalidade, crescimento. Pirâmide etária (estrutura população). Migrações internas (rural→urbano) e internacionais. Brasil: envelhecimento. Pegue pirâmide Brasil 1970 vs 2020. Compare: qual mudou? Por quê? Leia notícia migração (Síria, Venezuela). Por quê saem? Para onde? ENEM: 1-2 vezes. Dica: Brasil envelhecendo = pressão financeira."}
+        ]
+      },
+      {
+        name:"Filosofia",
+        topics:[
+          {txt:"Filosofia antiga", serie:"2º-3º", guide:"Sócrates: método (fazer perguntas), virtude é conhecimento. Platão: Teoria Ideias (mundo ideias vs realidade), alegoria caverna. Aristóteles: realismo, virtude como hábito, lógica. Sócrates: por quê 'só sei que nada sei'? Platão: diferença mundo visto vs real? Aristóteles: como virar bom praticando? ENEM: 1-2 vezes. Dica: aprenda IDEIAS, não nomes."},
+          {txt:"Contratualistas", serie:"3º", guide:"Contrato social: por quê abrir mão liberdade pra estado? Hobbes: medo (todos vs todos), precisa ditador. Locke: direitos naturais (vida, liberdade, propriedade), governo protege. Rousseau: vontade geral, igualdade, democracia. Cenário: sem governo, o que acontecia? ENEM: 1-2 vezes. Dica: fundamentam democracia moderna. ENEM conecta com direitos/estado."},
+          {txt:"Ética e política", serie:"2º-3º", guide:"Ética: como viver bem? O que é certo? Virtude, consequências, deveres. Política: organizar sociedade? Poder, justiça, direitos. Conexão Brasil: corrupção, desigualdade, democracia ameaçada. Caso concreto: é ético roubar pra comer? ENEM: 1-2 vezes. Dica: ENEM quer você PENSAR — tenha opinião fundamentada."}
+        ]
+      },
+      {
+        name:"Sociologia",
+        topics:[
+          {txt:"Clássicos (Marx, Weber, Durkheim)", serie:"2º-3º", guide:"Marx: luta classes, capitalismo explora. Weber: racionalização, protestantismo legalizou capitalismo. Durkheim: coesão social, solidariedade, anomia. Cenário: operário fábrica. Marx explica: patrão lucra com seu trabalho. Weber: por quê isso é 'normal'? Durkheim: solidariedade operários? ENEM: 1-2 vezes. Dica: clássicos ainda valem — entenda ideias."},
+          {txt:"Trabalho, cultura e cidadania", serie:"2º-3º", guide:"Trabalho: forma organiza sociedade, gera identidade, pode alienar. Cultura: símbolos, valores, costumes. Cidadania: direitos + deveres. Brasil: desigualdade impede cidadania plena. Você trabalha? Como se sente? Qual cultura sua comunidade? Você exerce cidadania? ENEM: 2-3 vezes. Dica: sociologia ama QUESTÕES REAIS."},
+          {txt:"Movimentos sociais e desigualdade", serie:"2º-3º", guide:"Movimentos: luta por direitos (mulheres, negros, LGBTQ+, indígenas, trabalho). Desigualdade: renda, raça, gênero, região. Como se perpetua? Como grupos resistem? Pesquise 1 movimento (BLM, Feminismo, Indígena). Qual era luta? Como evoluiu? Resistência? ENEM: 2-3 vezes. Dica: ENEM adora movimentos — conecta atualidade."},
+          {txt:"Direitos humanos", serie:"2º-3º", guide:"Declaração Universal (1948): dignidade, igualdade, liberdade, justiça. Brasil: Constituição 1988, direitos civis/políticos/sociais. Violações: tortura, homicídio, discriminação. Leia Declaração Universal (2–3 artigos). Qual direito falta Brasil? Prisão por cor? Sem acesso saúde? ENEM: 2-3 vezes. Dica: direitos humanos = FIO CONDUTOR ENEM."}
+        ]
+      }
+    ]
+  },
+  {
+    key:"cn", badge:"CN", color:"#2FA98C", name:"Ciências da Natureza",
+    subjects:[
+      {
+        name:"Biologia",
+        topics:[
+          {txt:"Ecologia (cadeias, ciclos)", serie:"2º-3º", guide:"Cadeia alimentar: produtor → consumidor primário → secundário → decompositor. Ciclos: carbono, nitrogênio, água, fósforo. Impactos: eutrofização, bioacumulação, aquecimento, perda biodiversidade. Desenhe cadeia local. Qual é produtor? Predador topo? Se desaparecer 1 espécie, o que acontece? ENEM: 3-4 vezes. Dica: ecologia é LÓGICA — fluxo energia segue padrão."},
+          {txt:"Citologia", serie:"2º", guide:"Célula: estrutura (núcleo, mitocôndria, cloroplasto, membrana). Procarioto vs eucarioto. Mitocôndria = energia (respiração), cloroplasto = energia (fotossíntese), núcleo = DNA. Estude 1 organela por dia. Qual sua função? ENEM: 1-2 vezes. Dica: não decore — entenda que cada organela tem JOB."},
+          {txt:"Genética e Mendel", serie:"2º-3º", guide:"Lei segregação: genes separam na reprodução (Aa × Aa = 1AA, 2Aa, 1aa = 3:1). Lei assortimento independente. Cruzamentos: Pai Aa, mãe aa. Qual % filhos dominante? (50%). Faça 5 cruzamentos até pegar padrão. ENEM: 1-2 vezes. Dica: aprenda regra multiplicação (P de X = 1/4, Y = 1/2 = 1/8 de X E Y)."},
+          {txt:"Fisiologia humana", serie:"2º-3º", guide:"Sistemas: digestório (quebra alimento), respiratório (O2), circulatório (nutrientes), nervoso (controla), endócrino (hormônios), imune (defende). Qual entrada? Processo? Saída? Digestório: comida → estômago+intestino → absorção → nutrientes+dejetos. ENEM: 2-3 vezes. Dica: fisiologia é LÓGICA — cada sistema tem função."},
+          {txt:"Evolução", serie:"2º-3º", guide:"Seleção natural (Darwin): ambiente seleciona quem sobrevive. Mutação gera variação. Organismos competem. Quem se adapta, vive e reproduz. Evidências: fósseis, estruturas análogas, DNA semelhante. Galápagos: tentilhões diferentes em ilhas diferentes. Qual processo? ENEM: 1-2 vezes. Dica: evolução não é 'progresso' — é adaptação ao ambiente."},
+          {txt:"Bioquímica e metabolismo", serie:"3º", guide:"Fotossíntese: luz+CO2+água = glicose+O2. Respiração: glicose+O2 = energia (ATP)+CO2+água. Fermentação: glicose = ácido lático/etanol+energia (sem O2). Enzimas: catalisam. Fotossíntese = fabrica. Respiração = quebra. Fermentação = emergência (iogurte, cerveja, fadiga muscular). ENEM: 1-2 vezes. Dica: planta na luz = fotossíntese. Mitocôndria sempre = respiração."}
+        ]
+      },
+      {
+        name:"Química",
+        topics:[
+          {txt:"Química ambiental", serie:"2º-3º", guide:"Poluição ar: CO2 (aquecimento), SO2/NOx (chuva ácida), ozônio (CFC). Água: metais, plástico, eutrofização. Solo: pesticidas, metais. Processo: combustão carvão = CO2+SO2. SO2+água = H2SO4 = chuva ácida = mata floresta. Solução? Energias limpas. ENEM: 2-3 vezes. Dica: rastreie origem (fábrica, carro) e caminho (ar → pulmão)."},
+          {txt:"Estequiometria", serie:"3º", guide:"Proporção: 1 mol A + 2 mol B = 1 mol AB2. Calcular: quantos gramas B preciso pra 5g A? Mol = massa ÷ massa molar. Reagente limitante: qual se acaba primeiro? Processo: (1) equação balanceada, (2) vire em mol, (3) proporção, (4) volta a gramas. ENEM: 1-2 vezes. Dica: estequiometria é MECÂNICA — acerte processo, resposta sai."},
+          {txt:"Soluções e concentração", serie:"2º-3º", guide:"Solução = soluto+solvente. Concentração: g/L (quanto soluto por litro), mol/L. Diluição: adiciona água, concentração diminui (C1V1=C2V2). Problema: 100mL solução 2mol/L NaCl. Dilui pra 200mL. Nova concentração? (1mol/L). ENEM: 1-2 vezes. Dica: quanto mais água, menos concentrada — proporção simples."},
+          {txt:"Química orgânica", serie:"3º", guide:"Carbono forma cadeias. Funções: alcano (C–C), alceno (C=C), alcino (C≡C), álcool (OH), ácido (COOH), éster, amina (NH2). Reações: substituição, adição, eliminação. Isômeros: mesma fórmula, estrutura diferente = propriedades diferentes. Estude 1 função por dia. Desenhe estrutura. ENEM: 2-3 vezes. Dica: orgânica é VISUAL — desenhe estruturas."},
+          {txt:"Eletroquímica", serie:"3º", guide:"Redox: oxidação (perde elétron), redução (ganha elétron). Bateria: redox gera corrente. Eletrólise: corrente obriga reação. Corrosão: oxidação (ferro enferruja). Reação: Zn+Cu2+=Zn2++Cu. Zn oxidou (perdeu 2e-), Cu2+ reduziu (ganhou 2e-). ENEM: 1-2 vezes. Dica: oxidação=perda (OIL), redução=ganho (RIG) de elétrons."},
+          {txt:"Termoquímica", serie:"2º-3º", guide:"Exotérmica (libera calor, ΔH<0) vs endotérmica (absorve, ΔH>0). Combustão sempre exotérmica. Evaporação endotérmica. Exemplo: combustão gasolina = exotérmica (car sai andando). Lógica: reação que faz coisa acontecer = exotérmica. Que precisa empurrão = endotérmica. ENEM: 1-2 vezes. Dica: gráfico energia mostra ΔH."},
+          {txt:"Atomística e ligações", serie:"2º", guide:"Átomo: prótons+nêutrons (núcleo)+elétrons (camadas). Iônica (troca elétrons, metal+não-metal), covalente (compartilha, não-metal+não-metal), metálica (mar de elétrons). NaCl: Na cede 1e-, Cl pega (iônica)=sal (quebra água). CO2: C compartilha com O (covalente)=moléculas fracas (gás). ENEM: 1-2 vezes. Dica: ligação determina TUDO — ponto fusão, solubilidade."}
+        ]
+      },
+      {
+        name:"Física",
+        topics:[
+          {txt:"Cinemática e Newton", serie:"2º-3º", guide:"Cinemática: movimento sem causa (velocidade, aceleração). Leis Newton: (1) inércia, (2) F=ma (força causa aceleração), (3) ação-reação. Carro 0–100 km/h em 10s. Aceleração? (~10 m/s²). Passageiro se 'joga pra trás'? Inércia. ENEM: 2-3 vezes. Dica: Newton é LÓGICA — força=mudança movimento."},
+          {txt:"Energia e trabalho", serie:"2º-3º", guide:"Trabalho = força×distância×cos(ângulo). Energia cinética (movimento=½mv²), potencial (posição=mgh). Conservação: total sempre igual (só muda forma). Bola caindo: em cima=potencial, metade=metade/metade, chão=cinética. Velocidade chão? v=√(2gh). ENEM: 1-2 vezes. Dica: energia não some — só muda forma."},
+          {txt:"Eletricidade e circuitos", serie:"2º-3º", guide:"Carga, tensão (voltagem=energia/carga), corrente (fluxo), resistência (dificuldade). Lei Ohm: V=IR. Potência: P=VI=I²R=V²/R. Circuito: série (fila) vs paralelo (ramos). Lâmpada 100W em 220V. Corrente? (I=P/V=100/220≈0.45A). ENEM: 2-3 vezes. Dica: eletricidade é PROPORCIONAL — dobra voltagem=dobra potência."},
+          {txt:"Termologia e calorimetria", serie:"2º", guide:"Temperatura (agitação moléculas), calor (energia transferida). Capacidade térmica (quanto calor pra aumentar 1°C). Dilatação: sólido, líquido, gás expandem com calor. 1L água 20°C. Adiciona 4180J. Nova temperatura? (Q=mc×ΔT → 4180=1000×1×4×ΔT → ΔT=1°C → 21°C). ENEM: 1-2 vezes. Dica: calor flui quente→frio."},
+          {txt:"Ondulatória e som", serie:"2º-3º", guide:"Onda: amplitude (altura), frequência (quantas/segundo), comprimento (distância entre picos), velocidade (v=fλ). Som: onda mecânica (precisa meio). Corda vibrando: f=10Hz, λ=0.5m. Velocidade? (v=fλ=10×0.5=5 m/s). ENEM: 1-2 vezes. Dica: onda — quanto maior frequência, menor comprimento."},
+          {txt:"Óptica", serie:"2º-3º", guide:"Reflexão (ricocheteia espelho), refração (muda direção outro meio). Lentes: convergente (junta), divergente (separa). Olho lê imagem invertida. Espelho plano: imagem virtual, mesmo tamanho, invertida. Lente convergente (miopia): aproxima. Divergente (hipermetropia): afasta. ENEM: 1-2 vezes. Dica: refração = por quê arco-íris."},
+          {txt:"Física moderna", serie:"3º", guide:"Quantização: energia em pacotes (fótons). Efeito fotoelétrico: luz libera elétrons (célula solar). Relatividade. Radioatividade: decaimento núcleo (alfa, beta, gama). Célula solar: fóton bate elétron, libera, gera corrente. Por quê painéis funcionam? ENEM: 0-1 vezes. Dica: moderna é CONTEXTO — entenda aplicação."}
+        ]
+      }
+    ]
+  },
+  {
+    key:"mt", badge:"MT", color:"#3E63DD", name:"Matemática",
+    subjects:[
+      {
+        name:"Proporção",
+        topics:[
+          {txt:"Porcentagem", serie:"2º", guide:"Porcentagem=fração denominador 100. 20%=20/100=0.2. Aumento 10%=×1.1. Desconto 15%=×0.85. Duas: multiplicam (10% desconto, depois 20%=×0.9×0.8=×0.72). Mentalmente: 25% de 80? (80÷4=20). 10% de 350? (35). ENEM: 4-6 vezes. Dica: porcentagem=MULTIPLICAÇÃO disfarçada."},
+          {txt:"Razão, proporção, regra de 3", serie:"2º-3º", guide:"Razão: a/b. Proporção: a/b=c/d. Regra de 3 simples: 2L gasolina custa R$10, 5L custa X? (X=10×5÷2=25). Direta (mais A=mais B) vs inversa (mais A=menos B). 4 operários casa 30 dias. Quantos pra 10 dias? (inversa: 4×30=X×10 → X=12). ENEM: 2-4 vezes. Dica: cruza multiplicação."},
+          {txt:"Matemática financeira (juros)", serie:"2º-3º", guide:"Juros simples: J=Cit. Montante: M=C+J=C(1+it). Juros compostos: M=C(1+i)^t (mais realista). Diferença: composto cresce 'exponencial', simples 'linear'. R$1000 a 5% ao ano 3 anos. Simples: J=1000×0.05×3=150 → M=1150. Composto: M=1000×(1.05)³≈1157.63. ENEM: 1-2 vezes. Dica: composto amigo dos bancos."}
+        ]
+      },
+      {
+        name:"Álgebra",
+        topics:[
+          {txt:"Função 1º grau", serie:"2º", guide:"f(x)=ax+b. Gráfico reta. 'a'=inclinação (a>0 sobe, a<0 desce). 'b'=onde cruza eixo Y. Raiz: onde cruza X (f(x)=0 → x=-b/a). f(x)=2x+3. Raiz? (0=2x+3 → x=-1.5). Gráfico: passa (0,3) e (-1.5,0). ENEM: 1-2 vezes. Dica: 1º grau=movimento constante=reta."},
+          {txt:"Função 2º grau", serie:"2º-3º", guide:"f(x)=ax²+bx+c. Gráfico=parábola. a>0 abre cima (mínimo), a<0 abre baixo (máximo). Vértice: ponto extremo (-b/2a, y_vértice). Raízes: Bhaskara. f(x)=x²-4x+3. Vértice x=4/2=2. y=-1. Mínimo em (2,-1). Raízes: (x-1)(x-3)=0 → x=1 ou 3. ENEM: 1-2 vezes. Dica: parábola é simétrica em torno vértice."},
+          {txt:"Exponencial e logaritmo", serie:"3º", guide:"Exponencial: f(x)=a^x (a>0, a≠1). Cresce rápido (2^10=1024). Logaritmo: log_a(b)=x significa a^x=b. log₁₀(100)=2 (porque 10²=100). Propriedades: log(xy)=logx+logy, log(x/y)=logx-logy. Bactéria dobra/hora. Após 5h? (2^5=32). Em quantas horas terá 64? (log₂(64)=6). ENEM: 1-2 vezes. Dica: exponencial=explosivo. Logaritmo=desacelera."},
+          {txt:"Progressões (PA e PG)", serie:"2º-3º", guide:"PA: sequência+razão constante (2,4,6,8... r=2). a_n=a₁+(n-1)r. Soma: S_n=n(a₁+a_n)/2. PG: multiplicado por razão (2,4,8,16... q=2). a_n=a₁×q^(n-1). Soma: S_n=a₁(q^n-1)/(q-1). PA: 3,6,9,12... 10º termo? (a₁₀=3+9×3=30). Soma primeiros 10? (S=10×(3+30)/2=165). ENEM: 1-2 vezes. Dica: PA=linear. PG=exponencial."}
+        ]
+      },
+      {
+        name:"Estatística",
+        topics:[
+          {txt:"Média, mediana, moda", serie:"2º", guide:"Média: soma÷quantidade. Mediana: valor do meio (ordenado). Moda: valor que mais repete. Qual usar? Média normal, mediana se outlier. Salários 1000,1000,1000,1000,100000. Média=20800 (enganosa!). Mediana=1000 (verdadeiro!). ENEM: 1-2 vezes. Dica: média é enganosa com outliers."},
+          {txt:"Leitura de gráficos e tabelas", serie:"2º-3º", guide:"Barras (comparação), linha (série temporal), pizza (proporção), dispersão (correlação). Ler: eixos (X e Y), título, legenda, unidades, escala. Pegue 5 gráficos notícia. (1) qual pergunta faz? (2) qual resposta? (3) há enganosa (escala quebrada)? ENEM: 5-7 questões. Dica: gráfico não mente — mas pode estar desenhado pra enganar."},
+          {txt:"Probabilidade", serie:"2º-3º", guide:"Probabilidade=casos favoráveis÷casos totais. Dado: 1/6 cada face. Dois dados: 36 resultados totais. Independentes: multiplicam (P(A E B)=P(A)×P(B)). Mutuamente exclusivos: somam (P(A OU B)=P(A)+P(B)). Dois dados somarem 7? (1+6,2+5,3+4,4+3,5+2,6+1)=6÷36=1/6. ENEM: 1-2 vezes. Dica: sempre reduz fração."},
+          {txt:"Análise combinatória", serie:"3º", guide:"Permutação P=n! (ordem importa: ABCD≠ACBD). Combinação C=n!/(k!(n-k)!) (ordem não importa). Arranjo A=n!/(n-k)! (ordem importa, menos que permutação). Senhas 4 dígitos (0-9)? (10⁴=10000). Escolher 3 de 5 pessoas? (C(5,3)=10). Ordem importa? Sim=arranjo. Não=combinação. ENEM: 1-2 vezes. Dica: pergunta-chave: 'ordem importa?'"}
+        ]
+      },
+      {
+        name:"Geometria",
+        topics:[
+          {txt:"Geometria plana", serie:"2º", guide:"Perímetro=soma lados. Área: quadrado (L²), retângulo (bh), triângulo (bh/2), círculo (πr²), trapézio ((B+b)h/2). Terreno quadrado 10m×10m. Perímetro? (40m). Área? (100m²). Cercar a R$50/m? (40×50=R$2000). ENEM: 1-2 vezes. Dica: toca TUDO — terreno, piscina, pintando parede."},
+          {txt:"Geometria espacial", serie:"3º", guide:"Volume: cubo (L³), paralelepípedo (abc), cilindro (πr²h), cone (πr²h/3), esfera (4πr³/3). Superfície=soma áreas faces. Caixa 10cm×5cm×4cm. Volume? (200cm³). Área papelão? (2×(10×5+10×4+5×4)=220cm²). ENEM: 1-2 vezes. Dica: volume=3D (cm³). Área=2D (cm²)."},
+          {txt:"Geometria analítica", serie:"3º", guide:"Ponto (x,y) em plano. Distância 2 pontos: d=√((x₂-x₁)²+(y₂-y₁)²). Reta: y=mx+b ou ax+by+c=0. Círculo: (x-h)²+(y-k)²=r² (centro (h,k), raio r). Pontos A(1,2) e B(4,6). Distância? (d=√(9+16)=5). Reta passando A e B? (m=(6-2)/(4-1)=4/3. y-2=(4/3)(x-1) → y=(4/3)x+2/3). ENEM: 0-1 vezes. Dica: geometria analítica=ponte Geometria+Álgebra."},
+          {txt:"Trigonometria", serie:"3º", guide:"Triângulo retângulo: senθ=oposto/hipotenusa, cosθ=adjacente/hipotenusa, tanθ=oposto/adjacente. Ângulos notáveis: sen30°=1/2, sen45°=√2/2, sen60°=√3/2. Lei senos/cossenos triângulos genéricos. Escada 3m altura, 4m distância. Comprimento? (3²+4²=escada², escada=5m). Ângulo com chão? (senθ=3/5 → θ≈37°). ENEM: 1-2 vezes. Dica: SOH CAH TOA = lembrete. Pratique aplicações."}
+        ]
+      }
+    ]
+  },
+  {
+    key:"rd", badge:"RD", color:"#8B5C9E", name:"Redação",
+    subjects:[
+      {
+        name:"Estrutura",
+        topics:[
+          {txt:"Modelo dissertativo-argumentativo", serie:"2º-3º", guide:"Introdução (tema+tese), Desenvolvimento (2-3 parágrafos argumentos+exemplos), Conclusão (retoma tese+proposta intervenção). Tese = opinião sobre tema em 1-2 frases. Leia 3 redações nota 1000. Identifique: tese (linha 2-3)? Qual argumento cada parágrafo? Proposta no final? Copie ESTRUTURA. ENEM: toda redação segue esse formato. Não siga = nota baixa. Dica: estrutura é METADE nota."},
+          {txt:"As 5 competências", serie:"2º-3º", guide:"C1 (norma culta)=sem erros português. C2 (entender tema+contexto)=não sair do assunto. C3 (organizar informações)=argumentos claros e ligados. C4 (linguagem=vocabulário+conectivos)=variedade, clareza. C5 (solução)=proposta intervenção concreta. Pegue redação antiga. Avalie-se (0-10). Qual mais fraca? Trabalhe. C1 fraca=revise gramática. C5 fraca=aprenda formular propostas. ENEM: cada competência vale até 200 pontos. Total 1000. Dica: C1 e C5 mais fácil melhorar rápido."},
+          {txt:"Introdução com tese clara", serie:"2º-3º", guide:"Introdução=contextualizar+tese. Tema 'Desafios educação'. Contexto: '...educação é pilar...' Tese: '...faltam investimentos e políticas...' (sua opinião). Para cada tema + 3 teses diferentes. Qual é claro? Qual é vago? Qual promete argumentação? Escolha melhor. Escreva parágrafo. Releia: ficou claro qual seu argumento? Evite: 'Vou falar sobre...', 'Este texto é importante...'. Seja direto: 'Educação de qualidade exige X, Y e Z.' ENEM: leitor deve saber sua posição nos primeiros 3 linhas."},
+          {txt:"Desenvolvimento com argumentos", serie:"2º-3º", guide:"Cada parágrafo=1 argumento+exemplos/dados. Argumento: por quê sua tese é verdade? Exemplo: estatística, lei, caso histórico, fato notório. Padrão: 'Tema sentença → argumento → exemplo → conclusão parágrafo'. Tese: 'Redes sociais prejudicam saúde mental jovens'. Arg1: 'Comparação social intensificada'. Exemplo: 'Instagram mostra vida perfeita — usuários se sentem inadequados'. Arg2: 'Vício design app' (notificações, likes). Frase mágica: 'Isso é evidenciado por...' ou 'A título de exemplo...'. ENEM: sem argumentos concretos = nota baixa. Não adianta opinião só — PROVE. Dica: 'Isso é evidenciado por...' soa mais formal."},
+          {txt:"Proposta de intervenção", serie:"2º-3º", guide:"Fórmula (memorize!): Agente (quem?) + Ação (o quê?) + Meio (como?) + Efeito (resultado?) + Detalhe (financiamento, temporalidade?). Exemplo: 'Ministério Educação deveria (ação: ampliar) através de (meio: aumentar orçamento 30%) investimento em (detalhe: formação professor) a fim de (efeito: melhorar qualidade aula nas escolas públicas).' Pegue 5 redações nota 1000. Sublinhe proposta. Identifique: agente? ação? meio? efeito? detalhe? Proposta vaga = descontos grandes em C5. 'Governo deveria fazer coisa boa' = nota 0. Seja ESPECÍFICO. Sem proposta = nota máxima 120 em C5 (de 200). Com boa proposta = 180+. ENEM: proposta é FIM DO TEXTO."}
+        ]
+      },
+      {
+        name:"Ferramentas",
+        topics:[
+          {txt:"Repertório sociocultural", serie:"2º-3º", guide:"Repertório=munição argumentar. Exemplos: Lei 10.639 (história africana obrigatória), Constituição 1988, dados IBGE/Nações Unidas, filósofos (Foucault sobre poder, Marx sobre desigualdade), artists (Portinari sobre desigualdade), eventos históricos (Ditadura, abolição). Pegue 5 temas ENEM comuns (tecnologia, sustentabilidade, educação, saúde, direitos). Para cada: 3 dados/leis/citações. Educação → Lei 9.394 (LDB), analfabetismo %, Paulo Freire (filósofo). Revise 2×/semana. ENEM: repertório com estrutura + argumento = C4+C3 disparadas. Dica: repertório AJUDA, não salva — sem estrutura+argumento, só repertório enche linguiça."},
+          {txt:"Conectivos e coesão", serie:"2º-3º", guide:"Conectivos ligam ideias: adição (além, também), oposição (porém, entretanto), consequência (portanto, logo), causa (porque, pois), explicação (ou seja, quer dizer). Coesão=texto flui (não salta). Pronomes conectam (ele, isso, aquele). Parágrafo seu: quantos conectivos tem? Consegue trocar por sinônimos? Releia — faz sentido? ENEM: sem conectivos = desconectado = nota baixa C4. Muitos = repetitivo. Equilíbrio. Dica: 'Estudei, passei.' vs 'Porque estudei, passei.' (causa clara)."},
+          {txt:"Erros que descontam", serie:"2º-3º", guide:"ZEROES: fuga tema (sair assunto), desconexão tese-desenvolvimento (argumentos sem relação), ininteligibilidade (texto sem sentido), <7 linhas mínimo. GRANDES DESCONTOS: 'Vou falar', 'Este texto', >5 erros gramática, sem proposta, proposta vaga. Antes entregar: checklist: (1) está sobre tema? (2) argumentos provam tese? (3) tem proposta? (4) revisei gramática? (5) mínimo linhas? 1 pessoa consegue ler parágrafos em voz alta sem respiração = muito longo. ENEM: erros fáceis zeram — não cometa. Releia sempre. Dica: proposta vaga = desastre. Template ajuda muito."}
+        ]
+      }
+    ]
+  }
+];
+
+const METHOD = [
+  {ico:"📖", txt:"Aprenda a teoria", desc:"Leia/assista o conteúdo e faça um resumo curto com suas palavras. Resumir é metade do aprendizado."},
+  {ico:"✍️", txt:"Resolva questões", desc:"Logo após a teoria, faça questões ENEM daquele tema. É o que mais fixa e mostra como cobram."},
+  {ico:"🔁", txt:"Revise com espaçamento", desc:"Volte ao tópico depois de 1 dia, 1 semana e 1 mês. Revisão espaçada vence o esquecimento."},
+  {ico:"🧪", txt:"Simule a prova", desc:"Da Fase 3 em diante, faça simulados completos no horário real pra ganhar resistência e ritmo."}
+];
+
+const FASES = [
+  {num:"1", name:"Fundamentos", date:"15/jun – 26/jul", desc:"Construa base nos conteúdos mais cobrados. Comece redação 1×/semana sem pressão."},
+  {num:"2", name:"Aprofundamento", date:"27/jul – 13/set", desc:"Conteúdos intermediários + questões por tema todos dias. Redações cronometradas (1h30)."},
+  {num:"3", name:"Simulados", date:"14/set – 18/out", desc:"Simulados completos 1–2×/semana. Corrija tudo, ataque pontos fracos."},
+  {num:"4", name:"Revisão final", date:"19/out – 07/nov", desc:"Revisão leve com resumos e fórmulas. Redações cronometradas. Durma bem na semana prova."}
+];
+
+let state = { checks:{}, redacoes:0 };
+
+async function loadState(){
+  try{
+    const r = localStorage.getItem("enem2026-progress");
+    if(r) state = JSON.parse(r);
+  }catch(e){}
+  if(!state.checks) state.checks = {};
+  if(typeof state.redacoes !== "number") state.redacoes = 0;
+}
+
+function saveState(){
+  try{ localStorage.setItem("enem2026-progress", JSON.stringify(state)); }catch(e){}
+}
+
+function updateProgress(){
+  let total = 0;
+  AREAS_DATA.forEach(a => a.subjects.forEach(s => total += s.topics.length));
+  let done = Object.values(state.checks).filter(Boolean).length;
+  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+  document.getElementById("progressNum").textContent = pct + "%";
+}
+
+function renderCountdown(){
+  const exam = new Date("2026-11-08");
+  const now = new Date(); now.setHours(0,0,0,0);
+  const diff = Math.max(0, Math.round((exam - now)/86400000));
+  document.getElementById("daysNum").textContent = diff;
+}
+
+function renderMethod(){
+  const html = METHOD.map(m=>`
+    <div class="method-card">
+      <div class="method-ico">${m.ico}</div>
+      <div><b>${m.txt}</b> <span>${m.desc}</span></div>
+    </div>`).join("");
+  document.getElementById("method").innerHTML = html;
+}
+
+function renderFases(){
+  const html = FASES.map(f=>`
+    <div class="fase f${f.num}">
+      <div class="fase-name">Fase ${f.num} — ${f.name}</div>
+      <div class="fase-date">${f.date}</div>
+      <div class="fase-desc">${f.desc}</div>
+    </div>`).join("");
+  document.getElementById("fases").innerHTML = html;
+}
+
+function renderAreas(){
+  const html = AREAS_DATA.map((a, ai)=>{
+    const subs = a.subjects.map((s, si)=>`
+      <div class="subject">
+        <div class="subject-name">${s.name}</div>
+        ${s.topics.map((t, ti)=>{
+          const id = `${a.key}-${si}-${ti}`;
+          const done = !!state.checks[id];
+          const serieBadge = `<span class="serie-badge serie-${t.serie.includes('-')?'23':t.serie.includes('3')?'3':'2'}">${t.serie}</span>`;
+          return `<div class="topic ${done?'done':''}" data-id="${id}">
+            <span class="cb" style="${done?`background:${a.color};border-color:${a.color};`:''}">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </span>
+            <span class="topic-text">${t.txt}${serieBadge}</span>
+          </div>`;
+        }).join("")}
+      </div>`).join("");
+
+    return `<div class="area">
+      <div class="area-head">
+        <div class="area-badge" style="background:${a.color}">${a.badge}</div>
+        <div class="area-info">
+          <div class="area-name">${a.name}</div>
+        </div>
+        <span class="chev">›</span>
+      </div>
+      <div class="area-body">
+        <div class="area-inner">
+          <div class="tip">💡 Toque num tópico pra ver o guia de estudos. Clique na checkbox pra marcar como feito.</div>
+          ${subs}
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+
+  document.getElementById("areas").innerHTML = html;
+
+  // Abrir/fechar
+  document.querySelectorAll(".area-head").forEach(h=>{
+    h.addEventListener("click", ()=>{
+      const area = h.closest(".area");
+      area.classList.toggle("open");
+    });
+  });
+
+  // Cliques em tópicos
+  document.querySelectorAll(".topic").forEach(el=>{
+    el.addEventListener("click", (e)=>{
+      const id = el.dataset.id;
+
+      // Se clica na checkbox, marca
+      if(e.target.closest(".cb")){
+        state.checks[id] = !state.checks[id];
+        el.classList.toggle("done");
+        saveState();
+        updateProgress();
+        return;
+      }
+
+      // Se clica no texto, abre guia (busca direto nos dados pelo id)
+      const parts = id.split("-");
+      const key = parts[0], si = parseInt(parts[1]), ti = parseInt(parts[2]);
+      const area = AREAS_DATA.find(a => a.key === key);
+      if(area){
+        const topic = area.subjects[si].topics[ti];
+        showGuide(topic.txt, topic.guide);
+      }
+    });
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", ()=>{
+    if(confirm("Zerar tudo?")){
+      state = { checks:{}, redacoes:0 };
+      saveState();
+      location.reload();
+    }
+  });
+}
+
+function showGuide(title, guide){
+  document.getElementById("guideTitle").textContent = title;
+  document.getElementById("guideBody").textContent = guide;
+  document.getElementById("guideModal").classList.add("open");
+}
+
+document.getElementById("guideClose").addEventListener("click", ()=>{
+  document.getElementById("guideModal").classList.remove("open");
+});
+
+document.getElementById("guideModal").addEventListener("click", (e)=>{
+  if(e.target.id === "guideModal"){
+    document.getElementById("guideModal").classList.remove("open");
+  }
+});
+
+document.addEventListener("keydown", (e)=>{
+  if(e.key === "Escape"){
+    document.getElementById("guideModal").classList.remove("open");
+  }
+});
+
+(async function(){
+  await loadState();
+  renderCountdown();
+  renderMethod();
+  renderFases();
+  renderAreas();
+  updateProgress();
+})();
+</script>
+
+</body>
+</html>
